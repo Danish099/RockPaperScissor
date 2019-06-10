@@ -4,24 +4,97 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>ROCK , PAPER AND SCISSORS</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="container">
-              <h1>"    A Game Of Rock , Paper And Scissors    "</h1>
-              <br><br><br>
-              <div class="result">
-            
-              </div>
-              <button id = "rock"> Rock </button>
-              <button id = "paper"> Paper </button>
-              <button id = "scissor"> Scissor </button>  
+             <title>ROCK , PAPER AND SCISSORS</title>
+             <script>
+               const choice = ['Rock','Paper','Scissor'];
 
-              <div class="end"></div>
-            </div>
+function computerPlay(){
+      let ch = Math.floor(Math.random() * 3);
+      return choice[ch];
+}
 
-            <script src="script.js"></script>
+function playRound(){
+    
+    let computerSelection = computerPlay();
+    let playerSelection = promt("Enter Rock/Paper/Scissor").toLowerCase();
+
+    console.log('Computer Select ${computerSelection}');
+    console.log('Player Selects ${playerSelection}');    
+    
+    if(playerSelection === 'rock'){
+        switch(computerSelection){
+            case 'rock':
+                return 0;      // 0 mean its a tie
+                break;
+            case 'paper':
+                return 1;     // 1 means computer win
+                break;
+            case 'scissor':   // 2 means player win
+                return 2;
+                break;
+        }
+    } 
+    if(playerSelection === 'paper'){
+        switch(computerSelection){
+            case 'rock':
+                return 2;
+                break;
+            case 'paper':
+                return 0;
+                break;
+            case 'scissor'
+                return 1;
+                break;
+        }
+    if(playerSelection === 'scissor') {
+        switch(computerSelection){
+            case 'rock':
+                return 1;
+                break;
+            case 'paper':
+                return 2;
+                break;
+            case 'scissor':
+                return 0;
+                break;
+        }
+    }   
+        
+    
+    }
+    
+};
+
+ function game()
+ {
+    let playerScore = 0;
+    let computerScore = 0;
+   for(let i=0;i<5;i++){
+       let round = playRound();
+       if(round = 0)
+       {
+           console.log('Its a tie');
+       }
+       if(round = 1){
+           console.log('Computer Win');
+           computerScore++;
+       }
+       if(round = 2){
+           console.log('Player Win');
+           playerScore++;
+       }
+   }
+
+   if (playerScore > computerScore)
+   {
+       console.log("Congratulation ! You Won");
+   }
+   else if {
+       console.log("Computer Won");
+   }
+ }
              
-    </body>
+             
+            </script>
+    <body>
 </html>
